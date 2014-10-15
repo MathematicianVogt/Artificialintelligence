@@ -1,0 +1,35 @@
+
+
+\documentclass[12pt]{article}
+
+\usepackage{listings}
+\lstset{basicstyle=\small}
+
+\begin{document}
+
+\title{Project 1: Intro to Intelligent Systems. A* Search for Rolling Dice Maze Problem}
+\author{Evan Witz,Ryan Vogt}
+\date{October 1 2014}
+\maketitle
+
+
+\section*{Problem Definition}
+The problem is as followed.Assume there exists a 6 sided dice. This dice has a starting position on a board with the number "1" face up. The starting position is denoted with S. The goal location is denoted as G. The - symbol represents a place which can be moved to, where as the * symbol means that the dice cannot be rotated to that position. The rules of this problem is that the dice must roll from the start to the goal such that not only is the number 6 not face up, but the ending location has the same number, 1, on the face of the die. 
+ 
+\section*{Heuristics}
+\subsection*{Heuristic 1}
+Simply acknowledges the fact that a die on its side cannot be at the finish, and as such, assigns the die a value of one if it is on its side and zero if it is on top.
+\subsection*{Heuristic 2}
+Acknowledges the fact that the die can only move at most one space per action, and as such, it assigns the die a value equal to the taxicab norm between the current space and the goal state.
+\subsection*{Heuristic 3}
+Works like heuristic 2, but it also acknowledges the fact that, in order to move in a given direction, the die must turn on its side first, and then turn on its side again once it is done. As such, this heuristic utilizes the taxicab norm as heuristic 2 did, but it also adds an additional value of 2 to any face-up die for each coordinate that is not already "lined up" with the finish, representing the fact that in order to travel in that direction, the die has to turn to one side, roll in that direction, and turn back. If the die is already on its side, it instead "rolls" the die towards the location it needs to go, ignoring all obstacles, stops once the die has lined up one of its coordinates with the goal state, and rights itself. It then calculates the heuristic from that new location to the goal state, and adds that to the running total of the heuristic. 
+
+
+\section*{Performance Metrics}
+
+
+
+\section*{Discussion}
+
+
+\end{document}

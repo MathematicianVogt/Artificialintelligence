@@ -37,6 +37,57 @@ def read_graph(filename):
 				edges[destCity] = [ srcCity ]
 	return edges
 
+
+
+def iterativeDeepeningSearch(start,end,maxDepth,graph):
+	iterativeAlgo(start,end,maxDepth,graph)
+
+
+def iterativeAlgo(start,end,maxDepth,graph):
+	frontierList=[]
+	exploredList=[]
+	frontierList.append((start))
+	for i in range(0,maxDepth):
+		if not frontierList:
+			print "FAIL"
+		else:
+			nextTrial=DFS(frontierList[0],end,i,graph,[],exploredList,[])
+
+				
+def DFS(start,end,maxDepth,graph,frontierList,exploredList,currentPath):
+	
+	if(currentPath!=[]):
+		print currentPath
+		
+
+	if currentPath!=[]:
+		if end in currentPath:
+			print "Solution"
+			print currentPath
+			sys.exit()
+	
+
+	if(maxDepth<=0):
+		return ()
+	else:
+		values=graph[start]
+		for value in values:
+			if value in exploredList:
+				pass
+			elif (frontierList!=[] and frontierList[0] in exploredList):
+				pass
+
+			else:
+				frontierList.append(value)
+				exploredList.append(start)
+				currentPath.append(start)
+				beggining=frontierList[0]
+				frontierList=frontierList[:1]
+				return DFS(beggining,end,maxDepth-1,graph,frontierList,exploredList,currentPath)
+	
+
+
+
 ######################################
 # Add functions for search, output
 # etc. here
@@ -77,6 +128,7 @@ def main():
 			print('')
 			print('--  Solution for: ' + start + ' to ' + goal + '-------------------')
 			print('TBD') # program will need to provide solution path or indicate failure.
+			iterativeDeepeningSearch(start,goal,20,edges)
 
 # Execute the main program.
 main()

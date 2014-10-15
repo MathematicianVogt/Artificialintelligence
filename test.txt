@@ -1,0 +1,29 @@
+
+
+--  Solution for: Arad to Bucharest-------------------
+TBD
+['Arad']
+['Arad']
+['Arad', 'Zerind']
+['Arad']
+['Arad', 'Timisoara']
+['Arad']
+['Arad', 'Sibiu']
+---------------------------
+--  Solution for: Arad to Timisoara-------------------
+TBD
+['Arad']
+['Arad']
+['Arad', 'Zerind']
+['Arad']
+['Arad', 'Timisoara']
+Solution
+['Arad', 'Timisoara']
+----------------------------------------------------
+['Arad']
+['Arad']
+['Arad', 'Zerind']
+Solution
+['Arad', 'Zerind']
+
+My problem was that for some reason i wouldnt go deeper than depth one, i couldnt figure out the issue. It has something to do with my frontier and explored data structures that is terminating it. 
